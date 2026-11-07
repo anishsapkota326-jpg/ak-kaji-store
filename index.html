@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK_KAJI TOP-UP STORE</title>
+<style>body{background:#0a0a0a;color:white;text-align:center;font-family:sans-serif;margin:0;padding-bottom:30px}.top{background:#e60000;padding:15px;font-weight:bold;font-size:20px;position:sticky;top:0}.card{background:#1a1a1a;padding:15px;margin:12px;border-radius:15px;text-align:left}.product{background:#222;padding:12px;margin:8px 0;border-radius:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}.product.selected{border:2px solid red;background:#2a1111}.product span{color:#ffcc00;font-weight:bold}input{width:100%;padding:13px;margin:8px 0;border-radius:10px;background:#222;color:white;border:1px solid #444;font-size:16px;box-sizing:border-box}button{width:100%;padding:14px;background:#25D366;color:black;border:none;border-radius:12px;font-size:18px;font-weight:bold}</style>
+</head><body>
+<div class="top">AK_KAJI TOP-UP STORE</div>
+<h1 style="color:red">💎 FREE FIRE DIAMONDS</h1>
+<p>⚡ Automatic • 1-5 Min Delivery • 24/7 Open</p>
+<div style="background:#1a2a1a;padding:10px;margin:10px;border-radius:10px">🟢 <b>ONLINE</b> - <span id="wallet">Wallet Loading...</span></div>
+<div class="card"><h2>1. Package Channus</h2><div id="list">Loading products...</div></div>
+<div class="card"><h2>2. Player Details</h2>
+<input id="uid" type="number" placeholder="Player UID - Jastai 23456789">
+<input id="ign" placeholder="Enter USERNAME">
+<button onclick="order()">ORDER GARA ✅</button>
+<p id="msg" style="text-align:center"></p></div>
+<p style="color:#888;font-size:12px">Powered by Matrix Gaming Store<br>© AK_KAJI</p>
+<script>
+let sel=null;
+async function load(){
+  const r=await fetch("/.netlify/functions/products");
+  const data=await r.json();
+  const list=document.getElementById("list");
+  list.innerHTML="";
+  const arr = data.data || data;
+  arr.forEach(p=>{
+    if(p.orderable===false) return;
+    const d=document.createElement("div");
+    d.className="product";
+    const price = p.price_paisa ? (p.price_paisa/100) : p.price;
+    d.innerHTML="<b>💎 "+p.name+"</b><span>Rs. "+price+"</span>";
+    d.onclick=()=>{document.querySelectorAll('.product').forEach(x=>x.classList.remove('selected'));d.classList.add('selected');sel=p;};
+    list.appendChild(d);
+  });
+  const w=await (await fetch("/.netlify/functions/wallet")).json();
+  const bal = w.data ? w.data.available_paisa/100 : 0;
+  document.getElementById("wallet").innerText="Wallet: Rs. "+bal;
+}
+async function order(){
+  if(!sel){alert("Pahila Package channus!");return;}
+  const uid=document.getElementById("uid").value;
+  const ign=document.getElementById("ign").value;
+  if(uid.length<5||ign.length<2){alert("UID ra USERNAME hala!");return;}
+  document.getElementById("msg").innerText="Order pathaudai...";
+  const variant_id = sel.id || sel.variant_id;
+  const player_data = { uid: uid, username: ign, player_id: uid, player_name: ign };
+  const res=await fetch("/.netlify/functions/order",{method:"POST",body:JSON.stringify({variant_id,player_data})});
+  const j=await res.json();
+  document.getElementById("msg").innerText = "Response: " + JSON.stringify(j).slice(0,300);
+  if(res.ok) alert("Order gayo! Matrix le Diamond pathauchha!");
+  else alert("Order fail: "+JSON.stringify(j));
+}
+load();
+</script></body></html>
