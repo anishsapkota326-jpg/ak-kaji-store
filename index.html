@@ -102,3 +102,102 @@ button {
 <div class="product" onclick="sel(this,'1595 Diamonds',1275)"><b>💎 1595 Diamonds</b><span>Rs. 1,275</span></div>
 <div class="product" onclick="sel(this,'1720 Diamonds',1365)"><b>💎 1720 Diamonds</b><span>Rs. 1,365</span></div>
 <div class="product" onclick="sel(this,'1965 Diamonds',1558)"><b>💎 1965
+<div class="product" onclick="sel(this,'2090 Diamonds',1661)"><b>💎 2090 Diamonds</b><span>Rs. 1,661</span></div>
+<div class="product" onclick="sel(this,'2530 Diamonds',1947)"><b>💎 2530 Diamonds</b><span>Rs. 1,947</span></div>
+<div class="product" onclick="sel(this,'5060 Diamonds',3859)"><b>💎 5060 Diamonds</b><span>Rs. 3,859</span></div>
+<div class="product" onclick="sel(this,'10120 Diamonds',7683)"><b>💎 10120 Diamonds 🔥</b><span>Rs. 7,683</span></div>
+<h3 style="color:#ff2222;">👑 WEEKLY & MONTHLY</h3>
+<div class="product" onclick="sel(this,'WEEKLY MEMBERSHIP',210)"><b>👑 WEEKLY MEMBERSHIP</b><span>Rs. 210</span></div>
+<div class="product" onclick="sel(this,'MONTHLY MEMBERSHIP',1050)"><b>👑 MONTHLY MEMBERSHIP</b><span>Rs. 1,050</span></div>
+<div class="product" onclick="sel(this,'MONTHLY + WEEKLY',1250)"><b>👑 MONTHLY + WEEKLY</b><span>Rs. 1,250</span></div>
+</div>
+<div class="card">
+<h2>2. Player Details</h2>
+<input type="number" id="uid" placeholder="Player UID - Jastai 23456789">
+<input type="text" id="ign" placeholder="Enter USERNAME">
+<select id="pay">
+<option>eSewa</option>
+<option>Khalti</option>
+<option>IME Pay</option>
+<option>Bank Transfer</option>
+</select>
+<button onclick="order()">ORDER GARA ✅</button>
+</div>
+<div class="card">
+<h2>💳 Payment</h2>
+<p>📱 <b>eSewa / Khalti:</b> 9817128797<br>
+⏰ <b>Delivery:</b> 1-5 Minute<br>
+📞 <b>Support:</b> WhatsApp 9817128797</p>
+</div>
+<p style="color:#888;font-size:12px;">© AK_KAJI TOP-UP STORE</p>
+<script>
+let pn = "";
+let pp = 0;
+function sel(e, n, p) {
+  document.querySelectorAll('.product').forEach(x => x.classList.remove('selected'));
+  e.classList.add('selected');
+  pn = n;
+  pp = p;
+}
+function order() {
+  let u = document.getElementById('uid').value;
+  let ign = document.getElementById('ign').value;
+  let pay = document.getElementById('pay').value;
+  if (!pn) { alert("Pahila Package channus kaji!"); return; }
+  if (u.length < 5) { alert("Sahi UID hala!"); return; }
+  if (ign.length < 2) { alert("USERNAME pani hala!"); return; }
+  let msg = "Hello AK_KAJI! Order garnu cha%0A%0AProduct: " + pn + "%0AUID: " + u + "%0AUSERNAME: " + ign + "%0APrice: Rs." + pp + "%0APayment: " + pay + "%0A%0APaisa pathaisake, screenshot pathauchu.";
+  window.open("https://wa.me/9779817128797?text=" + msg, "_blank");
+}
+</script>
+</body>
+</html><div class="product" onclick="sel(this,'2090 Diamonds',1661)"><b>💎 2090 Diamonds</b><span>Rs. 1,661</span></div>
+<div class="product" onclick="sel(this,'2530 Diamonds',1947)"><b>💎 2530 Diamonds</b><span>Rs. 1,947</span></div>
+<div class="product" onclick="sel(this,'5060 Diamonds',3859)"><b>💎 5060 Diamonds</b><span>Rs. 3,859</span></div>
+<div class="product" onclick="sel(this,'10120 Diamonds',7683)"><b>💎 10120 Diamonds 🔥</b><span>Rs. 7,683</span></div>
+<h3 style="color:#ff2222;">👑 WEEKLY & MONTHLY</h3>
+<div class="product" onclick="sel(this,'WEEKLY MEMBERSHIP',210)"><b>👑 WEEKLY MEMBERSHIP</b><span>Rs. 210</span></div>
+<div class="product" onclick="sel(this,'MONTHLY MEMBERSHIP',1050)"><b>👑 MONTHLY MEMBERSHIP</b><span>Rs. 1,050</span></div>
+<div class="product" onclick="sel(this,'MONTHLY + WEEKLY',1250)"><b>👑 MONTHLY + WEEKLY</b><span>Rs. 1,250</span></div>
+</div>
+<div class="card">
+<h2>2. Player Details</h2>
+<input type="number" id="uid" placeholder="Player UID - Jastai 23456789">
+<input type="text" id="ign" placeholder="Enter USERNAME">
+<select id="pay">
+<option>eSewa</option>
+<option>Khalti</option>
+<option>IME Pay</option>
+<option>Bank Transfer</option>
+</select>
+<button onclick="order()">ORDER GARA ✅</button>
+</div>
+<div class="card">
+<h2>💳 Payment</h2>
+<p>📱 <b>eSewa / Khalti:</b> 9817128797<br>
+⏰ <b>Delivery:</b> 1-5 Minute<br>
+📞 <b>Support:</b> WhatsApp 9817128797</p>
+</div>
+<p style="color:#888;font-size:12px;">© AK_KAJI TOP-UP STORE</p>
+<script>
+let pn = "";
+let pp = 0;
+function sel(e, n, p) {
+  document.querySelectorAll('.product').forEach(x => x.classList.remove('selected'));
+  e.classList.add('selected');
+  pn = n;
+  pp = p;
+}
+function order() {
+  let u = document.getElementById('uid').value;
+  let ign = document.getElementById('ign').value;
+  let pay = document.getElementById('pay').value;
+  if (!pn) { alert("Pahila Package channus kaji!"); return; }
+  if (u.length < 5) { alert("Sahi UID hala!"); return; }
+  if (ign.length < 2) { alert("USERNAME pani hala!"); return; }
+  let msg = "Hello AK_KAJI! Order garnu cha%0A%0AProduct: " + pn + "%0AUID: " + u + "%0AUSERNAME: " + ign + "%0APrice: Rs." + pp + "%0APayment: " + pay + "%0A%0APaisa pathaisake, screenshot pathauchu.";
+  window.open("https://wa.me/9779817128797?text=" + msg, "_blank");
+}
+</script>
+</body>
+</html>
